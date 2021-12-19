@@ -1,0 +1,32 @@
+{
+  "name": "@madnesslabs/madnessclub",
+  "namespace": "madnessclub",
+  "version": "1.0.0",
+  "description": "A fight club for engineers",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "stencil build",
+    "build:prod": "stencil build --prod",
+    "start": "stencil build --serve --watch --dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadnessLabs/MadnessClub.git"
+  },
+  "author": "Madness Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MadnessLabs/MadnessClub/issues"
+  },
+  "homepage": "https://github.com/MadnessLabs/MadnessClub#readme",
+  "devDependencies": {
+    "@fireenjin/cli": "^1.0.8",
+    "@stencil/core": "^2.12.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@fireenjin/components": "^1.0.15",
+    "firebase": "^9.6.1"
+  }
+}
