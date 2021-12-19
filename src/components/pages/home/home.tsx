@@ -22,7 +22,6 @@ export class PageHome {
     @Listen("fireenjinSubmit")
     async onSubmit(event) {
         if (!event?.detail?.data?.email) return alert("A valid email is required to join this club.");
-        console.log(event);
         this.auth.withEmailLink(event.detail.data.email, {
             url: config?.url,
             dynamicLinkDomain: config?.dynamicLinkDomain,
@@ -70,8 +69,13 @@ export class PageHome {
                 />
                 <article class="ion-padding" style={{ display: "block", width: "100vw" }}>
                     <h2>👊Madness Club</h2>
-                    {this.session?.uid ? <div class="dashboard">
-                        IS LOGGED IN
+                    {this.session?.uid ? <div class="dashboard ion-padding">
+                        <h1>Welcome to the Club</h1>
+                        <p>Well done, you are in the roster, consider joining your bretheren on our Discord, while we wait for our orders.</p>
+                        <ion-button href="https://discord.gg/kMXXNNSzuu" target="_blank">
+                            <ion-icon name="logo-discord" slot="start" />
+                            Join the Discord
+                        </ion-button>
                     </div> : <div class="landing ion-padding">
                         <p>I see all this potential, and I see it squandered. God damn it, an entire generation pumping gas, waiting tables - slaves with white collars. Advertising has us chasing cars and clothes, working jobs we hate so we can buy shit we don't need. We're the middle children of history, man. No purpose or place. We have no Great War. No Great Depression. Our great war is a spiritual war... Our great depression is our lives. We've all been raised on television to believe that one day we'd all be millionaires, and movie gods, and rock stars, but we won't. We're slowly learning that fact. And we're very, very pissed off. <br /><ion-text color="medium" class="ion-padding">-Tlyer Durden</ion-text></p>
                         <p>Engineering is our tool, our weapon, to take control of our lives and bring about, The Change....</p>
