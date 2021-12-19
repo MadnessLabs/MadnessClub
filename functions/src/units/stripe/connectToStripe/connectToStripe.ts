@@ -7,10 +7,10 @@ import env from "../../../env";
  */
 export default async function connectToStripe(
   data: {
-    stripeKey?: string;
+    secretkey?: string;
   } = {}
 ): Promise<Stripe> {
-  return new Stripe(data.stripeKey ? data.stripeKey : env("stripe.secretKey"), {
+  return new Stripe(data.secretkey ? data.secretkey : env("stripe.secretkey"), {
     apiVersion: "2020-08-27",
   });
 }
