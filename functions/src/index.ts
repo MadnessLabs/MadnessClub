@@ -9,9 +9,9 @@ export const connectUserToStripe = functions.https.onRequest(
     functions.logger.info("Connecting user to Stripe.", {
       structuredData: true,
     });
-    await createStripeOAuthTokenUnit({
+    const data = await createStripeOAuthTokenUnit({
       ...(request.body || request.params || {}),
     });
-    response.send("Connection completed correctly!");
+    response.send(data);
   }
 );

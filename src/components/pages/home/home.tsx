@@ -29,6 +29,7 @@ export class PageHome {
         interests?: string[];
         displayName?: string;
         isEnrolled?: boolean;
+        isPayable?: boolean;
     };
 
     @Listen("fireenjinSubmit")
@@ -94,8 +95,8 @@ export class PageHome {
 
         if (getParameter("code")) {
             setTimeout(async () => {
-                const response = await fetch(`${env("functionsHost")}/connectUserToStripe`, {
-                    method: 'post',
+                const response = await fetch("./connectUserToStripe", {
+                    method: "post",
                     body: JSON.stringify({
                         userId: this.session?.uid,
                         code: getParameter("code")

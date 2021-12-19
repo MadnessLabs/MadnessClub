@@ -34,5 +34,13 @@ export default async function createStripeOAuthTokenUnit(
     { merge: true }
   );
 
+  await db.collection("users").doc(input.userId).set(
+    {
+      id: input.userId,
+      isPayable: true,
+    },
+    { merge: true }
+  );
+
   return { accountId: response.stripe_user_id };
 }
