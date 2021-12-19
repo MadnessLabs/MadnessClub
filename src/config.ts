@@ -1,7 +1,6 @@
 export default {
-  env: "local",
-  emulate: true,
-  functionsHost: "http://localhost:5001/madness-club/us-central1",
+  env: "live",
+  functionsHost: "https://us-central1-madness-club.cloudfunctions.net",
   firebase: {
     apiKey: "AIzaSyDBBrd_7ADcgZ4oaubnENC_d303MePtYLM",
     authDomain: "madness-club.firebaseapp.com",
@@ -15,9 +14,9 @@ export default {
     vapidKey: "MY_VAPID_KEY",
   },
   stripe: {
-    key: "pk_test_G6ksY0dKXlgogvnitD0Wm1oc",
-    clientId: "ca_D5I8AuCy6ymrTR17FliYa2MrrOJwtlUI",
+    key: "pk_live_DDBgXdQrr1tK6U2FBpumxaoZ",
+    clientId: "ca_D5I8vt9bsP7HxtFZT3vzC3mYTQe6uTRE",
   },
-  url: "http://localhost:3333",
+  url: "https://madness.club",
   dynamicLinkDomain: "madnessclub.page.link",
 };
