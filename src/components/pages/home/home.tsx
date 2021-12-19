@@ -51,6 +51,7 @@ export class PageHome {
             },
             handleCodeInApp: true,
         });
+        this.emailSent = true;
     }
 
     @Listen("ionChange")
@@ -181,11 +182,16 @@ export class PageHome {
                         </div>}
                     </div> : <div class="landing ion-padding">
                         <p>I see all this potential, and I see it squandered. God damn it, an entire generation pumping gas, waiting tables - slaves with white collars. Advertising has us chasing cars and clothes, working jobs we hate so we can buy shit we don't need. We're the middle children of history, man. No purpose or place. We have no Great War. No Great Depression. Our great war is a spiritual war... Our great depression is our lives. We've all been raised on television to believe that one day we'd all be millionaires, and movie gods, and rock stars, but we won't. We're slowly learning that fact. And we're very, very pissed off. <br /><ion-text color="medium" class="ion-padding">-Tlyer Durden</ion-text></p>
-                        <p>Engineering is our tool, our weapon, to take control of our lives and bring about, The Change....</p>
                         <h1>Join the Madness...</h1>
-                        <fireenjin-form name="signup">
+                        <p>Engineering is our tool, our weapon, to take control of our lives and bring about, The Reboot....</p>
+                        {this.emailSent ? <div>
+                            <ion-icon color="primary" name="mail-unread" style={{ height: "150px", width: "150px", display: "block", margin: "20px auto" }} />
+                            <h2 class="ion-text-center ion-no-padding">Email Sent!</h2>
+                            <ion-text color="medium" class="ion-text-center" style={{ display: "block" }}>Check your spam if you don't see it after a few.</ion-text>
+                        </div> : <fireenjin-form name="signup" resetButton={"Reset"} resetButtonColor="light" submitButton="Send" submitButtonColor="success" >
+                            <p>Enter & confirm your email below to join us.</p>
                             <fireenjin-input type="email" name="email" placeholder="Email Address" required />
-                        </fireenjin-form>
+                        </fireenjin-form>}
                     </div>}
                 </article>
             </div >

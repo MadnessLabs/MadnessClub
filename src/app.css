@@ -163,3 +163,9 @@ article {
   box-shadow: 3px 3px 18px rgba(var(--ion-color-dark-rgb), 1);
   backdrop-filter: blur(10px);
 }
+
+fireenjin-input ion-input {
+  --placeholder-color: #efefef !important;
+  --color: #ffffff !important;
+  font-size: 26px !important;
+}
