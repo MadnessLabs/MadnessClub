@@ -75,6 +75,14 @@ export class PageHome {
         return this.getUser(session?.uid);
     }
 
+    async logout() {
+        await this.auth.goOffline();
+        await this.auth.logout();
+        await this.db.clearWatchers();
+        localStorage.clear();
+        window.location.href = "/";
+    }
+
     async componentDidLoad() {
         if (Build.isBrowser) {
             this.auth.onAuthChanged(async (session) => {
@@ -131,6 +139,7 @@ export class PageHome {
                 />
                 <article class="ion-padding" style={{ display: "block", width: "100vw" }}>
                     <h2>👊Madness Club</h2>
+                    {this.session?.uid && <ion-button style={{ position: "absolute", top: "20px", right: "20px" }} color="danger" fill="clear" onClick={() => this.logout()}>Logout<ion-icon slot="end" name="power" /></ion-button>}
                     {this.session?.uid ? <div class="dashboard ion-padding">
                         <h1>Welcome to the Club</h1>
                         <p>Well done, you are in the roster, consider joining your bretheren on our Discord, while we wait for our orders.</p>
