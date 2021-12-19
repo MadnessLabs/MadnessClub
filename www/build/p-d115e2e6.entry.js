@@ -1,1 +1,0 @@
-import{r}from"./p-a6d76906.js";let s=class{constructor(s){r(this,s),this.results=[]}render(){return this.results.map((r=>this.template(r)))}};export{s as fireenjin_input_search_popover}

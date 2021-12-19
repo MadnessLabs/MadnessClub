@@ -5,8 +5,8 @@
   "description": "A fight club for engineers",
   "main": "dist/index.js",
   "scripts": {
-    "build": "stencil build --prod --prerender",
-    "deploy": "firebase use live && npm run env live && firebase deploy",
+    "build": "stencil build --prod",
+    "deploy": "firebase use live && npm run env live && npm run build && firebase deploy",
     "env": "fireenjin env",
     "start": "npm run env local && stencil build --serve --watch --dev",
     "test": "echo \"Error: no test specified\" && exit 1"
