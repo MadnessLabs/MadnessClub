@@ -14,8 +14,8 @@ export default {
     vapidKey: "MY_VAPID_KEY",
   },
   stripe: {
-    key: "MY_KEY_HERE",
-    clientId: "MY_CLIENT_HERE",
+    key: "pk_test_G6ksY0dKXlgogvnitD0Wm1oc",
+    clientId: "ca_D5I8AuCy6ymrTR17FliYa2MrrOJwtlUI",
   },
   url: "http://localhost:3333",
   dynamicLinkDomain: "madnessclub.page.link",
