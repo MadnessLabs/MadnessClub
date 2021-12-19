@@ -33,6 +33,7 @@ export class PageHome {
         isEnrolled?: boolean;
         isPayable?: boolean;
     };
+    @State() emailSent = false;
 
     @Listen("fireenjinSubmit")
     async onSubmit(event) {
@@ -108,11 +109,14 @@ export class PageHome {
 
         if (getParameter("code")) {
             setTimeout(async () => {
-                const response = this.db.call("connectUserToStripe")({
-                    userId: this.session?.uid,
-                    code: getParameter("code")
-                });
-                console.log(response);
+                try {
+                    this.db.call("connectUserToStripe")({
+                        userId: this.session?.uid,
+                        code: getParameter("code")
+                    });
+                } catch (error) {
+                    alert(`There was an error setting up your Stripe connection: ${error?.message}`);
+                }
             }, 3000);
         }
     }

@@ -48723,6 +48723,7 @@ let PageHome = class {
     this.db = Build.isBrowser ? new DatabaseService({
       emulate: env("emulate", false)
     }) : null;
+    this.emailSent = false;
   }
   async onSubmit(event) {
     var _a, _b;
@@ -48795,11 +48796,15 @@ let PageHome = class {
     if (getParameter("code")) {
       setTimeout(async () => {
         var _a;
-        const response = this.db.call("connectUserToStripe")({
-          userId: (_a = this.session) === null || _a === void 0 ? void 0 : _a.uid,
-          code: getParameter("code")
-        });
-        console.log(response);
+        try {
+          this.db.call("connectUserToStripe")({
+            userId: (_a = this.session) === null || _a === void 0 ? void 0 : _a.uid,
+            code: getParameter("code")
+          });
+        }
+        catch (error) {
+          alert(`There was an error setting up your Stripe connection: ${error === null || error === void 0 ? void 0 : error.message}`);
+        }
       }, 3000);
     }
   }
