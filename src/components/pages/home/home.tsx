@@ -142,7 +142,7 @@ export class PageHome {
                     muted
                     loop
                 />
-                <article class="ion-padding" style={{ display: "block", width: "100vw" }}>
+                <article class="ion-padding" style={{ display: "block", width: "100vw", maxHeight: "100vh", overflowY: "auto" }}>
                     <h2>👊Madness Club</h2>
                     {this.session?.uid && <ion-button style={{ position: "absolute", top: "20px", right: "20px" }} color="danger" fill="clear" onClick={() => this.logout()}>Logout<ion-icon slot="end" name="power" /></ion-button>}
                     {this.session?.uid ? <div class="dashboard ion-padding">
