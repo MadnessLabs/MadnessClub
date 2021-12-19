@@ -17,21 +17,34 @@ import {
   enableIndexedDbPersistence,
   connectFirestoreEmulator,
 } from "firebase/firestore";
+import {
+  connectFunctionsEmulator,
+  Functions,
+  getFunctions,
+  httpsCallable,
+} from "firebase/functions";
 
 export class DatabaseService {
   service: Firestore;
   watchers: any = {};
+  functions: Functions;
 
   constructor(options?: { emulate: boolean }) {
     this.service = getFirestore();
+    this.functions = getFunctions();
     if (options?.emulate) {
       connectFirestoreEmulator(this.service, "localhost", 8080);
+      connectFunctionsEmulator(this.functions, "localhost", 5001);
     }
     try {
       enableIndexedDbPersistence(this.service);
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  call(functionName: string) {
+    return httpsCallable(this.functions, functionName);
   }
 
   async add(collectionName: string, data: any, id?: string) {

@@ -1,1 +1,10 @@
-<!doctype html><html lang="en" style="height: 100%;"><head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Madness Club</title> <link rel="stylesheet" href="./build/p-51b28e84.css"> <link rel="modulepreload" href="/build/p-17123690.js"><script type="module" src="/build/p-17123690.js" data-stencil data-resources-url="/build/" data-stencil-namespace="madnessclub"></script> <script nomodule="" src="/build/madnessclub.js" data-stencil></script> </head> <body style="background: #111111; height: 100%; display: flex; align-items: center;"> <page-home></page-home> </body></html>
+<!doctype html><html lang="en" style="height: 100%;"><head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Madness Club</title> <link rel="stylesheet" href="./build/madnessclub.css"> <script type="module" src="/build/madnessclub.esm.js" data-stencil></script> <script nomodule="" src="/build/madnessclub.js" data-stencil></script> </head> <body style="background: #111111; height: 100%; display: flex; align-items: center;"> <page-home></page-home> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}
+</script></body></html>

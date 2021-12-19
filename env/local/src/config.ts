@@ -1,6 +1,7 @@
 export default {
   env: "local",
-  functionsHost: "https://us-central1-madness-club.cloudfunctions.net",
+  emulate: true,
+  functionsHost: "http://localhost:5001/madness-club/us-central1",
   firebase: {
     apiKey: "AIzaSyDBBrd_7ADcgZ4oaubnENC_d303MePtYLM",
     authDomain: "madness-club.firebaseapp.com",

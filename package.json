@@ -8,6 +8,7 @@
     "build": "stencil build --prod",
     "deploy": "firebase use live && npm run env live && npm run build && firebase deploy",
     "env": "fireenjin env",
+    "emulate": "firebase emulators:start",
     "start": "npm run env local && stencil build --serve --watch --dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

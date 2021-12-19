@@ -17,9 +17,11 @@ export class PageHome {
         ...this.config,
         tokenLocalStorageKey: "madnessclub:token",
         authLocalStorageKey: "madnessclub:session",
-        emulate: false,
+        emulate: env("emulate", false),
     }) : null;
-    db = Build.isBrowser ? new DatabaseService() : null;
+    db = Build.isBrowser ? new DatabaseService({
+        emulate: env("emulate", false)
+    }) : null;
 
     @State() session: any;
     @State() user: {
@@ -95,16 +97,12 @@ export class PageHome {
 
         if (getParameter("code")) {
             setTimeout(async () => {
-                const response = await fetch("./connectUserToStripe", {
-                    method: "post",
-                    body: JSON.stringify({
-                        userId: this.session?.uid,
-                        code: getParameter("code")
-                    })
+                const response = this.db.call("connectUserToStripe")({
+                    userId: this.session?.uid,
+                    code: getParameter("code")
                 });
-                console.log(response.json());
+                console.log(response);
             }, 3000);
-
         }
     }
 
@@ -153,13 +151,17 @@ export class PageHome {
                                 value: "design"
                             }]}
                         />
-                        {this.user?.isEnrolled && <div>
+                        {this.user?.isEnrolled && !this.user?.isPayable && <div>
                             <h2>Setup your Payment Method</h2>
                             <p>Get paid to complete missions by creating a Stripe account.</p>
                             <ion-button color="success" href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${env("stripe.clientId")}&scope=read_write`}>
                                 <ion-icon slot="start" name="logo-usd" />
                                 Connect to Stripe
                             </ion-button>
+                        </div>}
+                        {this.user?.isPayable && <div>
+                            <h1>Setup Complete</h1>
+                            <p>You are setup to be paid for Missions!</p>
                         </div>}
                     </div> : <div class="landing ion-padding">
                         <p>I see all this potential, and I see it squandered. God damn it, an entire generation pumping gas, waiting tables - slaves with white collars. Advertising has us chasing cars and clothes, working jobs we hate so we can buy shit we don't need. We're the middle children of history, man. No purpose or place. We have no Great War. No Great Depression. Our great war is a spiritual war... Our great depression is our lives. We've all been raised on television to believe that one day we'd all be millionaires, and movie gods, and rock stars, but we won't. We're slowly learning that fact. And we're very, very pissed off. <br /><ion-text color="medium" class="ion-padding">-Tlyer Durden</ion-text></p>
