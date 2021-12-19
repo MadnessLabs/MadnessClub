@@ -91,6 +91,9 @@ export class PageHome {
                             displayName: session?.displayName || null
                         });
                     }
+                    this.db.watchDocument("users", session.uid, ({ data }) => {
+                        this.user = data;
+                    });
                 }
             });
         }
