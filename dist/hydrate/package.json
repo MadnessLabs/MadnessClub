@@ -1,0 +1,6 @@
+{
+  "name": "@madnesslabs/madnessclub/hydrate",
+  "description": "madnessclub component hydration app.",
+  "main": "index.js",
+  "types": "index.d.ts"
+}

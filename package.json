@@ -5,9 +5,10 @@
   "description": "A fight club for engineers",
   "main": "dist/index.js",
   "scripts": {
-    "build": "stencil build",
-    "build:prod": "stencil build --prod",
-    "start": "stencil build --serve --watch --dev",
+    "build": "stencil build --prod --prerender",
+    "deploy": "firebase use live && npm run env live && firebase deploy",
+    "env": "fireenjin env",
+    "start": "npm run env local && stencil build --serve --watch --dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,10 @@
   },
   "dependencies": {
     "@fireenjin/components": "^1.0.15",
+    "@ionic-native/core": "^5.36.0",
+    "@ionic-native/facebook": "^5.36.0",
+    "@ionic-native/google-plus": "^5.36.0",
+    "@ionic-native/twitter-connect": "^5.36.0",
     "firebase": "^9.6.1"
   }
 }
