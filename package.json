@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/MadnessLabs/MadnessClub#readme",
   "devDependencies": {
-    "@fireenjin/cli": "^1.0.8",
+    "@fireenjin/cli": "^1.0.9",
     "@stencil/core": "^2.12.0",
     "typescript": "^4.5.4"
   },
