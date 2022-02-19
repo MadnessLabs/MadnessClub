@@ -1,11 +1,6 @@
 @import "~@fireenjin/components/dist/fireenjin/fireenjin.css";
 
-/*
- * Dark Colors
- * -------------------------------------------
- */
-
-body.dark {
+:root {
   --ion-color-primary: #428cff;
   --ion-color-primary-rgb: 66, 140, 255;
   --ion-color-primary-contrast: #ffffff;
@@ -68,14 +63,9 @@ body.dark {
   --ion-color-light-contrast-rgb: 255, 255, 255;
   --ion-color-light-shade: #1e2023;
   --ion-color-light-tint: #383a3e;
-}
 
-/*
- * iOS Dark Theme
- * -------------------------------------------
- */
+  --ion-font-family: "JuliaMono", Arial, Helvetica, sans-serif;
 
-.ios body.dark {
   --ion-background-color: #000000;
   --ion-background-color-rgb: 0, 0, 0;
 
@@ -104,68 +94,188 @@ body.dark {
 
   --ion-item-background: #000000;
 
-  --ion-card-background: #1c1c1d;
+  --ion-card-background: #111111;
 }
 
-.ios body.dark ion-modal {
+@font-face {
+  font-family: "JuliaMono";
+  src: url("/assets/fonts/JuliaMono-Bold.woff2") format("woff2"),
+    url("/assets/fonts/JuliaMono-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JuliaMono";
+  src: url("/assets/fonts/JuliaMono-Bolder.woff2") format("woff2"),
+    url("/assets/fonts/JuliaMono-Bolder.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JuliaMono";
+  src: url("/assets/fonts/JuliaMono-Black.woff2") format("woff2"),
+    url("/assets/fonts/JuliaMono-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  font-family: "JuliaMono", "Times New Roman", Times, serif, Helvetica,
+    sans-serif;
+}
+
+ion-modal {
   --ion-background-color: var(--ion-color-step-100);
   --ion-toolbar-background: var(--ion-color-step-150);
   --ion-toolbar-border-color: var(--ion-color-step-250);
   --ion-item-background: var(--ion-color-step-150);
 }
 
-/*
- * Material Design Dark Theme
- * -------------------------------------------
- */
-
-.md body.dark {
-  --ion-background-color: #121212;
-  --ion-background-color-rgb: 18, 18, 18;
-
-  --ion-text-color: #ffffff;
-  --ion-text-color-rgb: 255, 255, 255;
-
-  --ion-border-color: #222222;
-
-  --ion-color-step-50: #1e1e1e;
-  --ion-color-step-100: #2a2a2a;
-  --ion-color-step-150: #363636;
-  --ion-color-step-200: #414141;
-  --ion-color-step-250: #4d4d4d;
-  --ion-color-step-300: #595959;
-  --ion-color-step-350: #656565;
-  --ion-color-step-400: #717171;
-  --ion-color-step-450: #7d7d7d;
-  --ion-color-step-500: #898989;
-  --ion-color-step-550: #949494;
-  --ion-color-step-600: #a0a0a0;
-  --ion-color-step-650: #acacac;
-  --ion-color-step-700: #b8b8b8;
-  --ion-color-step-750: #c4c4c4;
-  --ion-color-step-800: #d0d0d0;
-  --ion-color-step-850: #dbdbdb;
-  --ion-color-step-900: #e7e7e7;
-  --ion-color-step-950: #f3f3f3;
-
-  --ion-item-background: #1e1e1e;
-
-  --ion-toolbar-background: #1f1f1f;
-
-  --ion-tab-bar-background: #1f1f1f;
-
-  --ion-card-background: #1e1e1e;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #fff;
 }
 
-article {
-  background: rgba(var(--ion-color-dark-rgb), 0.9);
-  color: var(--ion-color-dark-contrast);
-  box-shadow: 3px 3px 18px rgba(var(--ion-color-dark-rgb), 1);
+h1 {
+  font-weight: 900;
+  font-size: 48px;
+  position: relative;
+}
+
+h1.title {
+  opacity: 0.9;
+  text-align: center;
+  letter-spacing: 10px;
+  text-shadow: 0 0 5px #c8c8c8, -2px -2px 8px #2fdf75,
+    1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+b {
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+i {
+  font-style: normal;
+  display: inline-block;
+  transform: rotate(-30deg);
+}
+
+hr {
+  height: 2px;
+  background: var(--ion-color-step-350);
+}
+
+.green-screen {
+  background-color: black;
+  background-image: radial-gradient(rgba(11, 177, 11, 0.75), black 120%);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 2rem;
+  color: white;
   backdrop-filter: blur(10px);
+}
+
+.green-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.05;
+  background-image: url("https://68.media.tumblr.com/595a5fa01fe53ca0e4ca8f37bacc849d/tumblr_nve67mJtue1tanofjo1_500.gif");
+}
+
+.green-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(black, 0.15),
+    rgba(black, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.terminal-buttons {
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--ion-color-success);
+  float: right;
+  position: relative;
+  margin: 0 25px;
+}
+
+.terminal-buttons::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--ion-color-medium);
+}
+
+.terminal-buttons::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
+  background-color: var(--ion-color-danger);
+}
+
+ion-card-header {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ion-card-title {
+  padding: 0px 15px 4px;
+  border-bottom: 1px solid var(--ion-color-step-350);
 }
 
 fireenjin-input ion-input {
   --placeholder-color: #efefef !important;
   --color: #ffffff !important;
   font-size: 26px !important;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
