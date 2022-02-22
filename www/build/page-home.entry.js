@@ -48728,6 +48728,7 @@ let PageHome = class {
       })
       : null;
     this.emailSent = false;
+    this.finishedLoading = false;
   }
   async onSubmit(event) {
     var _a, _b;
@@ -48797,6 +48798,17 @@ let PageHome = class {
           });
         }
       });
+      if (this.progressBarEl) {
+        let currentProgress = 0;
+        const progressInterval = setInterval(() => {
+          currentProgress = currentProgress + Math.random() / 3;
+          this.progressBarEl.value = currentProgress;
+          if (currentProgress >= 1) {
+            this.finishedLoading = true;
+            clearInterval(progressInterval);
+          }
+        }, 500);
+      }
     }
     if (getParameter("code")) {
       setTimeout(async () => {
@@ -48825,7 +48837,7 @@ let PageHome = class {
         margin: "-10px auto",
         zIndex: "2",
         position: "relative",
-      }, src: "./assets/images/Madness.png", alt: "MADNESS", height: "75", width: "260" }), h("i", { style: { fontSize: "40px" } }, "\uD83D\uDC4A"), "C\u026DU\u0243", h("b", null, "\u275A")), ((_a = this.session) === null || _a === void 0 ? void 0 : _a.uid) && (h("ion-button", { style: { position: "absolute", top: "20px", right: "20px" }, color: "danger", fill: "clear", onClick: () => this.logout() }, "Logout", h("ion-icon", { slot: "end", name: "power" }))), ((_b = this.session) === null || _b === void 0 ? void 0 : _b.uid) ? (h("div", { class: "dashboard ion-padding" }, h("h2", null, "Welcome to the Club"), h("p", { style: { color: "#ffffff" } }, "Well done, you are in the roster, consider joining your bretheren on our Discord, while we wait for our orders."), h("ion-button", { href: "https://discord.gg/kMXXNNSzuu", target: "_blank" }, h("ion-icon", { name: "logo-discord", slot: "start" }), "Join the Discord"), h("h2", null, "What are you interested in learning?"), h("fireenjin-select", { interfaceOptions: { header: "Interested In" }, name: "interests", multiple: true, value: ((_c = this.user) === null || _c === void 0 ? void 0 : _c.interests) || [], placeholder: "Interests", options: [
+      }, src: "./assets/images/Madness.png", alt: "MADNESS", height: "75", width: "260" }), h("i", { style: { fontSize: "40px" } }, "\uD83D\uDC4A"), this.finishedLoading ? (h("ion-text", null, h("span", null, "C\u026DU\u0243"), h("b", null, "\u275A"))) : (h("ion-progress-bar", { ref: (el) => (this.progressBarEl = el) }))), ((_a = this.session) === null || _a === void 0 ? void 0 : _a.uid) && (h("ion-button", { style: { position: "absolute", top: "20px", right: "20px" }, color: "danger", fill: "clear", onClick: () => this.logout() }, "Logout", h("ion-icon", { slot: "end", name: "power" }))), ((_b = this.session) === null || _b === void 0 ? void 0 : _b.uid) ? (h("div", { class: "dashboard ion-padding" }, h("h2", null, "Welcome to the Club"), h("p", { style: { color: "#ffffff" } }, "Well done, you are in the roster, consider joining your bretheren on our Discord, while we wait for our orders."), h("ion-button", { href: "https://discord.gg/kMXXNNSzuu", target: "_blank" }, h("ion-icon", { name: "logo-discord", slot: "start" }), "Join the Discord"), h("h2", null, "What are you interested in learning?"), h("fireenjin-select", { interfaceOptions: { header: "Interested In" }, name: "interests", multiple: true, value: ((_c = this.user) === null || _c === void 0 ? void 0 : _c.interests) || [], placeholder: "Interests", options: [
         {
           label: "Software Engineering (Coding / Programming)",
           value: "software",

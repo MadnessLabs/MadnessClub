@@ -25,6 +25,7 @@ export class PageHome {
         emulate: env("emulate", false),
       })
     : null;
+  progressBarEl: HTMLIonProgressBarElement;
 
   @State() session: any;
   @State() user: {
@@ -37,6 +38,7 @@ export class PageHome {
     isPayable?: boolean;
   };
   @State() emailSent = false;
+  @State() finishedLoading = false;
 
   @Listen("fireenjinSubmit")
   async onSubmit(event) {
@@ -114,6 +116,17 @@ export class PageHome {
           });
         }
       });
+      if (this.progressBarEl) {
+        let currentProgress = 0;
+        const progressInterval = setInterval(() => {
+          currentProgress = currentProgress + Math.random() / 3;
+          this.progressBarEl.value = currentProgress;
+          if (currentProgress >= 1) {
+            this.finishedLoading = true;
+            clearInterval(progressInterval);
+          }
+        }, 500);
+      }
     }
 
     if (getParameter("code")) {
@@ -156,7 +169,15 @@ export class PageHome {
             height="75"
             width="260"
           />
-          <i style={{ fontSize: "40px" }}>👊</i>CɭUɃ<b>❚</b>
+          <i style={{ fontSize: "40px" }}>👊</i>
+          {this.finishedLoading ? (
+            <ion-text>
+              <span>CɭUɃ</span>
+              <b>❚</b>
+            </ion-text>
+          ) : (
+            <ion-progress-bar ref={(el) => (this.progressBarEl = el)} />
+          )}
         </h1>
         {this.session?.uid && (
           <ion-button

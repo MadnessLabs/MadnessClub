@@ -148,12 +148,40 @@ h1 {
 }
 
 h1.title {
-  opacity: 0.9;
+  opacity: 0;
+  transition: opacity 0;
   text-align: center;
   font-size: 64px;
   letter-spacing: 5px;
   text-shadow: 0 0 5px #c8c8c8, -2px -2px 8px #2fdf75,
     1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+h1.title img {
+  opacity: 0;
+}
+
+ion-card {
+  height: 0;
+  opacity: 0;
+  transition: all ease 0.8;
+  transition-delay: 4s;
+}
+
+.start-loading ion-card {
+  height: auto;
+  opacity: 1;
+}
+
+.start-loading h1.title img {
+  -webkit-animation: flickerAnimation 0.5s 5 forwards 5s;
+  -moz-animation: flickerAnimation 0.5s 5 forwards 5s;
+  -o-animation: flickerAnimation 0.5s 5 forwards 5s;
+  animation: flickerAnimation 0.5s 5 forwards 5s;
+}
+
+.start-loading h1.title {
+  opacity: 0.8;
 }
 
 b {

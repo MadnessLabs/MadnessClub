@@ -1,4 +1,82 @@
-<!doctype html><html lang="en" style="height: 100%;"><head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Madness Club</title> <link rel="stylesheet" href="./build/madnessclub.css"> <script type="module" src="/build/madnessclub.esm.js" data-stencil></script> <script nomodule="" src="/build/madnessclub.js" data-stencil></script> </head> <body style="background: #000000; height: 100%; display: flex; align-items: center;"> <page-home></page-home> <script>
+<!doctype html><html lang="en" style="height: 100%;"><head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Madness Club</title> <link rel="stylesheet" href="./build/madnessclub.css"> <script type="module" src="/build/madnessclub.esm.js" data-stencil></script> <script nomodule="" src="/build/madnessclub.js" data-stencil></script> <style>page-home {
+        opacity: 0;
+      }
+      page-home.start-loading {
+        -webkit-animation: flickerAnimation 0.64s 2 forwards;
+        -moz-animation: flickerAnimation 0.64s 2 forwards;
+        -o-animation: flickerAnimation 0.64s 2 forwards;
+        animation: flickerAnimation 0.64s 2 forwards;
+      }
+      @keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .animate-flicker {
+        -webkit-animation: flickerAnimation 0.5s infinite;
+        -moz-animation: flickerAnimation 0.5s infinite;
+        -o-animation: flickerAnimation 0.5s infinite;
+        animation: flickerAnimation 0.5s infinite;
+      }</style> <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          document.querySelector("page-home").classList.add("start-loading");
+        },
+        false
+      );
+    </script> </head> <body style="background: #000000; height: 100%; display: flex; align-items: center;"> <page-home></page-home> <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   // auto-unregister service worker during dev mode
   navigator.serviceWorker.getRegistration().then(function(registration) {

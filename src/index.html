@@ -8,6 +8,88 @@
     <link rel="stylesheet" href="./build/madnessclub.css" />
     <script type="module" src="/build/madnessclub.esm.js"></script>
     <script nomodule src="/build/madnessclub.js"></script>
+    <style>
+      page-home {
+        opacity: 0;
+      }
+      page-home.start-loading {
+        -webkit-animation: flickerAnimation 0.64s 2 forwards;
+        -moz-animation: flickerAnimation 0.64s 2 forwards;
+        -o-animation: flickerAnimation 0.64s 2 forwards;
+        animation: flickerAnimation 0.64s 2 forwards;
+      }
+      @keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes flickerAnimation {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .animate-flicker {
+        -webkit-animation: flickerAnimation 0.5s infinite;
+        -moz-animation: flickerAnimation 0.5s infinite;
+        -o-animation: flickerAnimation 0.5s infinite;
+        animation: flickerAnimation 0.5s infinite;
+      }
+    </style>
+    <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          document.querySelector("page-home").classList.add("start-loading");
+        },
+        false
+      );
+    </script>
   </head>
   <body
     style="
