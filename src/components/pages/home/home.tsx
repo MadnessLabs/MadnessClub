@@ -245,7 +245,11 @@ export class PageHome {
           </div>
         ) : (
           <div class="landing ion-padding">
-            <ion-card>
+            <ion-card
+              class={{
+                loaded: this.finishedLoading,
+              }}
+            >
               <ion-card-header>
                 <ion-card-title>
                   Welcome... We've Been Wating...

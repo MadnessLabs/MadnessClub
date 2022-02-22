@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "stencil build --prod",
-    "deploy": "firebase use live && npm run env live && npm run build && firebase deploy",
+    "deploy": "firebase use live && npm run env live && npm run build && firebase deploy --only hosting",
     "env": "fireenjin env",
     "emulate": "firebase emulators:start",
     "start": "npm run env local && stencil build --serve --watch --dev",
