@@ -135,7 +135,7 @@ export class PageHome {
   render() {
     return (
       <article
-        class="ion-padding green-screen"
+        class="ion-padding green-screen crt"
         style={{
           display: "block",
           width: "100vw",
@@ -144,9 +144,19 @@ export class PageHome {
         }}
       >
         <h1 class="title">
-          MÅDNɆSȿ
-          <br />
-          <i>👊</i>CɭUɃ<b>❚</b>
+          <img
+            style={{
+              display: "block",
+              margin: "-10px auto",
+              zIndex: "2",
+              position: "relative",
+            }}
+            src="./assets/images/Madness.png"
+            alt="MADNESS"
+            height="75"
+            width="260"
+          />
+          <i style={{ fontSize: "40px" }}>👊</i>CɭUɃ<b>❚</b>
         </h1>
         {this.session?.uid && (
           <ion-button
@@ -217,79 +227,93 @@ export class PageHome {
             <ion-card>
               <ion-card-header>
                 <ion-card-title>
-                  Welcome We've Been Wating...
+                  Welcome... We've Been Wating...
                   <span class="terminal-buttons" />
                 </ion-card-title>
               </ion-card-header>
               <ion-card-content class="ion-padding">
-                <p class="ion-padding">
-                  I see all this potential, and I see it squandered. God damn
-                  it, an entire generation pumping gas, waiting tables - slaves
-                  with white collars. Advertising has us chasing cars and
-                  clothes, working jobs we hate so we can buy shit we don't
-                  need. We're the middle children of history, man. No purpose or
-                  place. We have no Great War. No Great Depression. Our great
-                  war is a spiritual war... Our great depression is our lives.
-                  We've all been raised on television to believe that one day
-                  we'd all be millionaires, and movie gods, and rock stars, but
-                  we won't. We're slowly learning that fact. And we're very,
-                  very pissed off. <br />
-                  <ion-text color="medium" class="ion-padding">
-                    -Tlyer Durden
-                  </ion-text>
-                </p>
-                <hr />
-                <div id="join-us" class="ion-padding">
-                  <h1>
-                    <ion-text color="success">
-                      Join the Madness...<b>❚</b>
-                    </ion-text>
-                  </h1>
-                  <p>
-                    Engineering is our tool, our weapon, to take control of our
-                    lives and bring about, The Reboot....
-                  </p>
-                  {this.emailSent ? (
-                    <div>
-                      <ion-icon
-                        color="primary"
-                        name="mail-unread"
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <div id="join-us" class="ion-padding">
+                        <h1>
+                          <ion-text color="success">
+                            Enter your Email<b>❚</b>
+                          </ion-text>
+                        </h1>
+                        <p>
+                          Engineering is our tool, our weapon, to take control
+                          of our lives and bring about, The Reboot....
+                        </p>
+                        {this.emailSent ? (
+                          <div>
+                            <ion-icon
+                              color="primary"
+                              name="mail-unread"
+                              style={{
+                                height: "150px",
+                                width: "150px",
+                                display: "block",
+                                margin: "20px auto",
+                              }}
+                            />
+                            <h2 class="ion-text-center ion-no-padding">
+                              Email Sent!
+                            </h2>
+                            <ion-text
+                              color="medium"
+                              class="ion-text-center"
+                              style={{ display: "block" }}
+                            >
+                              Check your spam if you don't see it after a few.
+                            </ion-text>
+                          </div>
+                        ) : (
+                          <fireenjin-form
+                            name="signup"
+                            resetButton={"Reset"}
+                            resetButtonColor="light"
+                            submitButton="Send"
+                            submitButtonColor="success"
+                          >
+                            <p>Enter & confirm your email below to join us.</p>
+                            <fireenjin-input
+                              type="email"
+                              name="email"
+                              placeholder="Email Address"
+                              required
+                            />
+                          </fireenjin-form>
+                        )}
+                      </div>
+                    </ion-col>
+                    <ion-col>
+                      <p
+                        class="ion-padding"
                         style={{
-                          height: "150px",
-                          width: "150px",
-                          display: "block",
-                          margin: "20px auto",
+                          border: "1px dashed rgba(255, 255, 255, 0.3)",
+                          borderRadius: "4px",
                         }}
-                      />
-                      <h2 class="ion-text-center ion-no-padding">
-                        Email Sent!
-                      </h2>
-                      <ion-text
-                        color="medium"
-                        class="ion-text-center"
-                        style={{ display: "block" }}
                       >
-                        Check your spam if you don't see it after a few.
-                      </ion-text>
-                    </div>
-                  ) : (
-                    <fireenjin-form
-                      name="signup"
-                      resetButton={"Reset"}
-                      resetButtonColor="light"
-                      submitButton="Send"
-                      submitButtonColor="success"
-                    >
-                      <p>Enter & confirm your email below to join us.</p>
-                      <fireenjin-input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        required
-                      />
-                    </fireenjin-form>
-                  )}
-                </div>
+                        I see all this potential, and I see it squandered. God
+                        damn it, an entire generation pumping gas, waiting
+                        tables - slaves with white collars. Advertising has us
+                        chasing cars and clothes, working jobs we hate so we can
+                        buy shit we don't need. We're the middle children of
+                        history, man. No purpose or place. We have no Great War.
+                        No Great Depression. Our great war is a spiritual war...
+                        Our great depression is our lives. We've all been raised
+                        on television to believe that one day we'd all be
+                        millionaires, and movie gods, and rock stars, but we
+                        won't. We're slowly learning that fact. And we're very,
+                        very pissed off. <br />
+                        <ion-text color="medium" class="ion-padding">
+                          -Tlyer Durden
+                        </ion-text>
+                      </p>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
               </ion-card-content>
             </ion-card>
           </div>
