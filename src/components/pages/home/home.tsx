@@ -172,7 +172,7 @@ export class PageHome {
         {this.session?.uid ? (
           <div class="dashboard ion-padding">
             <h2>Welcome to the Club</h2>
-            <p>
+            <p style={{ color: "#ffffff" }}>
               Well done, you are in the roster, consider joining your bretheren
               on our Discord, while we wait for our orders.
             </p>
@@ -243,7 +243,7 @@ export class PageHome {
                         </h1>
                         <p>
                           Engineering is our tool, our weapon, to take control
-                          of our lives and bring about, The Reboot....
+                          of our lives and bring about, The Reboot...☠
                         </p>
                         {this.emailSent ? (
                           <div>
@@ -276,7 +276,9 @@ export class PageHome {
                             submitButton="Send"
                             submitButtonColor="success"
                           >
-                            <p>Enter & confirm your email below to join us.</p>
+                            <p style={{ color: "#ffffff" }}>
+                              Enter & confirm your email below to join us.
+                            </p>
                             <fireenjin-input
                               type="email"
                               name="email"
@@ -307,7 +309,7 @@ export class PageHome {
                         millionaires, and movie gods, and rock stars, but we
                         won't. We're slowly learning that fact. And we're very,
                         very pissed off. <br />
-                        <ion-text color="medium" class="ion-padding">
+                        <ion-text color="dark" class="ion-padding">
                           -Tlyer Durden
                         </ion-text>
                       </p>
