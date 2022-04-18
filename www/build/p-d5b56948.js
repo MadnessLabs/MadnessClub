@@ -1,0 +1,4 @@
+import{l as o}from"./p-005b2cbe.js";import{b as t}from"./p-e8c0a813.js";
+/*!
+ * (C) Ionic http://ionicframework.com - MIT License
+ */const s=o=>o&&"ION-CONTENT"===o.tagName,n=async t=>s(t)?(await new Promise((s=>o(t,s))),t.getScrollElement()):t,a=o=>o.querySelector(".ion-content-scroll-host")||o.querySelector("ion-content, .ion-content-scroll-host"),e=o=>o.closest("ion-content, .ion-content-scroll-host"),i=(o,t)=>s(o)?o.scrollToTop(t):Promise.resolve(o.scrollTo({top:0,left:0,behavior:t>0?"smooth":"auto"})),c=(o,t,n,a)=>s(o)?o.scrollByPoint(t,n,a):Promise.resolve(o.scrollBy({top:n,left:t,behavior:a>0?"smooth":"auto"})),r=o=>t(o,"ion-content");export{e as a,c as b,a as f,n as g,r as p,i as s}

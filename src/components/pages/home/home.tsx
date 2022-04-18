@@ -229,7 +229,9 @@ export class PageHome {
                   color="success"
                   href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${env(
                     "stripe.clientId"
-                  )}&scope=read_write`}
+                  )}&stripe_user[email]=${
+                    this.user?.email
+                  }&stripe_user[business_type]=sole_prop&scope=read_write`}
                 >
                   <ion-icon slot="start" name="logo-usd" />
                   Connect to Stripe
